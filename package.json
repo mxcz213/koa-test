@@ -1,0 +1,23 @@
+{
+  "name": "koa-test",
+  "version": "1.0.0",
+  "description": "koa test",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxcz213/koa-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mxcz213/koa-test/issues"
+  },
+  "homepage": "https://github.com/mxcz213/koa-test#readme",
+  "dependencies": {
+    "koa": "^2.10.0"
+  }
+}
