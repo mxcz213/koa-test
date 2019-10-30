@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test 请求</title>
+    <style>
+        .table-row{
+            border-collapse: collapse;
+        }
+        .table-row td{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>显示表的数据</p>
+        <div id="showData"></div>
+    </div>
+    <script>
+        var showData = document.getElementById('showData');
+        function getList(){
+            fetch('/getList')
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                let str = '<table class="table-row"><thead><tr><td>ID</td><td>name</td><td>status</td></tr></thead><tbody>';
+                data.data.forEach(item => {
+                    str += '<tr><td>' + item.id + '</td><td>' + item.name + '</td><td>' + item.status + '</td></tr>';
+                });
+                str += '</tbody></table>';
+                showData.innerHTML = str;
+            })
+        }
+        getList();
+    </script>
+</body>
+</html>
