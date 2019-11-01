@@ -1,10 +1,6 @@
 const mysql = require('mysql');
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456',
-    database: 'koa_test'
-})
+const config = require('./mysql_config');
+const conn = mysql.createConnection(config.mysql);
 
 conn.connect((err) => {
     if(err){
@@ -12,21 +8,21 @@ conn.connect((err) => {
     }
     console.log('mysql 连接成功');
 });
-//查询数据
-let getList = [];
-conn.query('select * from domain;', (error, result, fileds) => {
-    if(error){
-        throw error;
-    }
-    result.forEach(item => {
-        getList.push({
-            id: item.id,
-            name: item.name,
-            status: item.status
+
+let query = (sql, params) => {
+    return new Promise((resolve, reject) => {
+        conn.query(sql, params, (error, result, fields) => {
+            if(error){
+                reject(error);
+            } else {
+                resolve(result);
+            }
         })
-    });
-});
+    })
+}
+
+
 
 //关闭连接
-conn.end();
-module.exports = getList;
+//conn.end();
+module.exports = { conn, query};
