@@ -21,8 +21,6 @@ let query = (sql, params) => {
     })
 }
 
-
-
 //关闭连接
 //conn.end();
 module.exports = { conn, query};

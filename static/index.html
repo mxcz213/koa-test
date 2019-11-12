@@ -143,7 +143,7 @@
         var ID = '';
 
         function getList(){
-            fetch('/getList')
+            fetch('/api/getList')
             .then((res) => {
                 return res.json();
             })
@@ -165,7 +165,7 @@
                 name: name,
                 status: status
             }
-            fetch('/add', {
+            fetch('/api/add', {
                 method: 'POST',
                 body: JSON.stringify(params)
             })
@@ -184,7 +184,7 @@
         };
 
         function deleteData(id){
-            fetch('/delete', {
+            fetch('/api/delete', {
                 method: 'POST',
                 body: JSON.stringify({id: id})
             })
@@ -199,7 +199,7 @@
         }
 
         function getInfo(id){
-            fetch('/getInfo/'+id)
+            fetch('/api/getInfo/'+id)
             .then((res) => {
                 return res.json()
             })
@@ -218,7 +218,7 @@
         }
 
         function updateData(id, name, status){
-            fetch('/update', {
+            fetch('/api/update', {
                 method: 'POST',
                 body: JSON.stringify({id: id, name: name, status: status})
             })
