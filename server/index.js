@@ -4,6 +4,7 @@ const { join } = require('path');
 const koaBody = require('koa-body');
 
 const app = new Koa();
+//const routers = require('./routes/index')
 const routers = require('./routes/index')
 
 const staticPath = '../static';

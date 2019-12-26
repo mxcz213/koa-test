@@ -4,8 +4,12 @@
   "description": "koa test",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon start.js",
+    "dev": "nodemon -w src --exec \"babel-node src/index --presets env\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "md_to_html": "nodemon md_to_html/server/server.js",
+    "m2h": "npm run md_to_html",
+    "db": "node md_to_html/server/db/db_init.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +22,8 @@
   },
   "homepage": "https://github.com/mxcz213/koa-test#readme",
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "koa": "^2.10.0",
@@ -29,7 +35,15 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/register": "^7.7.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.4.1",
+    "lodash": "^4.17.15",
     "mysql": "^2.17.1",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "regenerator-runtime": "^0.13.3"
   }
 }
